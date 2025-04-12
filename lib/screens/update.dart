@@ -1,38 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:student_management_app/model/studmodel.dart';
 
-class Create extends StatefulWidget {
-  const Create({super.key});
+class Update extends StatefulWidget {
+  const Update({super.key});
 
   @override
-  State<Create> createState() => _CreateState();
+  State<Update> createState() => _UpdateState();
 }
 
-class _CreateState extends State<Create> {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController idController = TextEditingController();
-  TextEditingController degreeController = TextEditingController();
+class _UpdateState extends State<Update> {
+  @override
+  TextEditingController studentManagementController = TextEditingController();
+  TextEditingController studentManagementController1 = TextEditingController();
+  TextEditingController studentManagementController2 = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    nameController.addListener(() {
+    studentManagementController.addListener(() {
+      print(studentManagementController.text);
       setState(() {});
     });
-    idController.addListener(() {
+    studentManagementController1.addListener(() {
       setState(() {});
     });
-    degreeController.addListener(() {
+    studentManagementController2.addListener(() {
       setState(() {});
     });
   }
 
   @override
   void dispose() {
-    nameController.dispose();
-    idController.dispose();
-    degreeController.dispose();
+    studentManagementController.dispose();
+    studentManagementController1.dispose();
+    studentManagementController2.dispose();
     super.dispose();
   }
 
@@ -41,7 +41,7 @@ class _CreateState extends State<Create> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.lightBlueAccent,
-        title: Text("Create", style: TextStyle(color: Colors.white)),
+        title: Text("Update", style: TextStyle(color: Colors.white)),
 
         centerTitle: true,
       ),
@@ -54,7 +54,7 @@ class _CreateState extends State<Create> {
               vertical: 8.0,
             ),
             child: TextField(
-              controller: nameController,
+              controller: studentManagementController,
               decoration: InputDecoration(
                 labelText: "Name",
                 labelStyle: TextStyle(color: Colors.grey[800], fontSize: 20),
@@ -63,10 +63,10 @@ class _CreateState extends State<Create> {
                   borderSide: BorderSide(color: Colors.grey),
                 ),
                 suffixIcon:
-                    nameController.text.isNotEmpty
+                    studentManagementController.text.isNotEmpty
                         ? IconButton(
                           onPressed: () {
-                            nameController.clear();
+                            studentManagementController.clear();
                           },
                           icon: Icon(Icons.close),
                         )
@@ -81,8 +81,7 @@ class _CreateState extends State<Create> {
               vertical: 8.0,
             ),
             child: TextField(
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-              controller: idController,
+              controller: studentManagementController1,
               decoration: InputDecoration(
                 labelText: "Id",
                 labelStyle: TextStyle(color: Colors.grey[800], fontSize: 20),
@@ -91,10 +90,10 @@ class _CreateState extends State<Create> {
                   borderSide: BorderSide(color: Colors.grey),
                 ),
                 suffixIcon:
-                    idController.text.isNotEmpty
+                    studentManagementController1.text.isNotEmpty
                         ? IconButton(
                           onPressed: () {
-                            idController.clear();
+                            studentManagementController1.clear();
                           },
                           icon: Icon(Icons.close),
                         )
@@ -109,7 +108,7 @@ class _CreateState extends State<Create> {
               vertical: 8.0,
             ),
             child: TextField(
-              controller: degreeController,
+              controller: studentManagementController2,
               decoration: InputDecoration(
                 labelText: "Degree",
                 labelStyle: TextStyle(color: Colors.grey[800], fontSize: 20),
@@ -118,10 +117,10 @@ class _CreateState extends State<Create> {
                   borderSide: BorderSide(color: Colors.grey),
                 ),
                 suffixIcon:
-                    degreeController.text.isNotEmpty
+                    studentManagementController2.text.isNotEmpty
                         ? IconButton(
                           onPressed: () {
-                            degreeController.clear();
+                            studentManagementController2.clear();
                           },
                           icon: Icon(Icons.close),
                         )
@@ -137,7 +136,7 @@ class _CreateState extends State<Create> {
               children: [
                 ElevatedButton(
                   onPressed: () {},
-                  child: Text("Submit", style: TextStyle(color: Colors.white)),
+                  child: Text("Update", style: TextStyle(color: Colors.white)),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.lightBlueAccent,
                     shape: RoundedRectangleBorder(
